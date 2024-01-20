@@ -14,7 +14,7 @@ const io = new Server(app);
 server.use(express.json());
 server.use(cors());
 server.get("/", (req, res) => {
-  res.send("hello world")
+  res.send("hello mithiii")
 });
 server.post("/addForm", valildateForm, isValildateForm, addForm)
 io.on("connection", socket => {
