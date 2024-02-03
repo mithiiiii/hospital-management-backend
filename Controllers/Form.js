@@ -1,11 +1,13 @@
 const Form = require("../Models/Form")
 
 
-exports.addForm = async(req,res)=>{
+exports.addForm = async(req,res,next)=>{
     try{
        const _form = new Form(req.body)
        await _form.save()
-       res.status(201).json({message:"your form is submitted"})
+       req.subject = "user form submitted"
+       req.text = "you have successfully signed up"
+       next()
     }
     catch (error){
         console.log(error);
